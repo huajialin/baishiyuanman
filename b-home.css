@@ -1,0 +1,116 @@
+body {
+    font-family: 'PingFang SC', sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.profile-wrap {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 25px;
+}
+
+.user-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.user-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.user-info p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.top-icons i {
+    font-size: 20px;
+    color: #999;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.func-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.func-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+.func-list li i {
+    font-size: 20px;
+    color: #666;
+    margin-right: 15px;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 15px;
+    background: #c5a288;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #b28f72;
+}
+
+/* 响应式 */
+@media (max-width: 400px) {
+    .user-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .top-icons {
+        margin-top: 15px;
+    }
+    .func-list li {
+        font-size: 14px;
+    }
+}
+.return-btn {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.return-btn:hover {
+    color: #b5997f; /* 暖棕色，与底部导航高亮色一致 */
+}
+
+/* 响应式调整：小屏幕下调整图标间距 */
+@media (max-width: 400px) {
+    .top-icons i {
+        margin-left: 10px;
+    }
+}

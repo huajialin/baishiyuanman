@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="b-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="profile-wrap">
+        <!-- 顶部用户信息 -->
+        <div class="user-top">
+            <div class="user-avatar">
+                <img src="./image/head.jpg" alt="头像">
+            </div>
+            <div class="user-info">
+                <h3>云端殡葬</h3>
+                <p>188****9999</p>
+            </div>
+            <div class="top-icons">
+                <i class="fas fa-arrow-left return-btn"></i> <!-- 返回按钮 -->
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+        
+        <!-- 功能菜单 -->
+        <ul class="func-list">
+            <li><i class="fas fa-shopping-bag"></i>商城订单</li>
+            <li><i class="fas fa-cubes"></i>墓位续费</li>
+            <li><i class="fas fa-dog"></i>宠物订单</li>
+            <li><i class="fas fa-heart"></i>合葬订单</li>
+            <li><i class="fas fa-box"></i>寄存续费</li>
+            <li><i class="fas fa-map-marker-alt"></i>墓位管理</li>
+            <li><i class="fas fa-headset"></i>客服中心</li>
+            <li><i class="fas fa-comments"></i>投诉建议</li>
+            <li><i class="fas fa-info-circle"></i>关于我们</li>
+            <li><i class="fas fa-file-alt"></i>服务协议</li>
+            <li><i class="fas fa-shield-alt"></i>隐私政策</li>
+        </ul>
+        
+        <!-- 退出按钮 -->
+        <button class="logout-btn">退出登录</button>
+    </div>
+    
+    <script>
+        document.querySelector('.return-btn').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

@@ -8,11 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- 加载指示器 -->
+    <div class="loading-indicator"></div>
+    
     <div class="container">
         <h1>云端殡葬</h1>
+        
+        <!-- 轮播图部分 -->
+        <div class="banner-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/1200/400?random=1" alt="殡葬服务宣传图1">
+                        <div class="slide-caption">专业殡葬服务，让告别更有温度</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/1200/400?random=2" alt="殡葬服务宣传图2">
+                        <div class="slide-caption">云端祭祀，随时随地寄托哀思</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/1200/400?random=3" alt="殡葬服务宣传图3">
+                        <div class="slide-caption">个性化墓碑设计，留住永恒记忆</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 轮播导航按钮 -->
+            <button class="carousel-btn carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next"><i class="fas fa-chevron-right"></i></button>
+            
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators">
+                <button class="indicator active" data-index="0"></button>
+                <button class="indicator" data-index="1"></button>
+                <button class="indicator" data-index="2"></button>
+            </div>
+        </div>
+        
+        <!-- 搜索栏 -->
         <div class="search-bar">
             <input type="text" placeholder="搜索服务">
         </div>
+        
+        <!-- 功能图标 -->
         <div class="feature-icons">
             <div class="icon-item">
                 <i class="fas fa-info-circle"></i>
@@ -35,17 +73,19 @@
                 <p>产品定制</p>
             </div>
         </div>
+        
+        <!-- 图片卡片 -->
         <div class="image-cards">
             <div class="card">
-                <img src="./image/01.jpg" alt="预约看墓">
+                <img src="./image/01.jpg" alt="预约看墓" loading="lazy">
                 <div class="card-label">预约看墓</div>
             </div>
             <div class="card">
-                <img src="./image/02.jpg" alt="宠物葬丧">
+                <img src="./image/02.jpg" alt="宠物葬丧" loading="lazy">
                 <div class="card-label">宠物葬丧</div>
             </div>
             <div class="card">
-                <img src="./image/03.png" alt="预约祭祀">
+                <img src="./image/03.png" alt="预约祭祀" loading="lazy">
                 <div class="card-label">预约祭祀</div>
             </div>
         </div>
@@ -58,17 +98,19 @@
             <p>首页</p>
         </div>
         <div class="nav-item">
-            <i class="fas fa-building"></i>
-            <p >
-                <a href="./a-lobby.html">办事大厅</a>
-            </p>
+            <a href="./a-lobby.html">
+                <i class="fas fa-building"></i>
+                <p>办事大厅</p>
+            </a>
         </div>
         <div class="nav-item">
-            <i class="fas fa-user"></i>
-            <p>
-                <a href="./a-home.html">个人中心</a>
-            </p>
+            <a href="./a-home.html">
+                <i class="fas fa-user"></i>
+                <p>个人中心</p>
+            </a>
         </div>
     </nav>
+    
+    <script src="./c-homePage.js"></script>
 </body>
 </html>

@@ -3,11 +3,13 @@ body {
     background-color: #f5ebdc;
     margin: 0;
     padding: 20px 15px;
+    /* 可选择在此处添加底部边距 */
 }
 
 .container {
     max-width: 1000px;
     margin: 0 auto;
+    padding-bottom: 60px; /* 关键修改：添加底部边距 */
 }
 
 h1 {
@@ -62,6 +64,7 @@ h2 {
     bottom: 0;
     left: 0;
     right: 0;
+    height: 50px; /* 明确导航栏高度，便于计算边距 */
 }
 
 .nav-item {
@@ -96,5 +99,9 @@ h2 {
         height: 60px;
         line-height: 60px;
         font-size: 28px;
+    }
+    
+    .container {
+        padding-bottom: 50px; /* 移动端同步调整边距 */
     }
 }

@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云端殡葬</title>
+
+    <!-- 1. 优先加载CDN版本 -->
+    <link rel="stylesheet" id="font-awesome-cdn" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 2. 本地Font Awesome备份 (默认隐藏) -->
+    <link rel="stylesheet" id="font-awesome-local" href="assets/font-awesome/css/all.min.css" media="none">
+    
+    <!-- 3. 检测CDN是否加载成功的脚本 -->
+    <script>
+        // 检测Font Awesome是否成功加载
+        function checkFontAwesomeLoaded() {
+            // 创建一个测试元素
+            const testElement = document.createElement('i');
+            testElement.className = 'fas fa-check';
+            testElement.style.display = 'none';
+            document.body.appendChild(testElement);
+            
+            // 检查是否能获取到图标的宽度
+            const iconWidth = window.getComputedStyle(testElement).getPropertyValue('width');
+            
+            // 如果宽度为0或不可用，表示CDN加载失败
+            if (iconWidth === '0px' || iconWidth === '') {
+                console.warn('Font Awesome CDN加载失败，切换到本地版本');
+                
+                // 禁用CDN版本
+                document.getElementById('font-awesome-cdn').disabled = true;
+                
+                // 启用本地版本 (移除media="none")
+                document.getElementById('font-awesome-local').media = 'all';
+            }
+            
+            // 移除测试元素
+            document.body.removeChild(testElement);
+        }
+        
+        // 在页面加载完成后执行检测
+        window.addEventListener('load', checkFontAwesomeLoaded);
+    </script>
+    
+    <!-- 其他样式和脚本 -->
     <link rel="stylesheet" href="b-homePage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
 </head>
 <body>
     <div class="container">

@@ -1,26 +1,34 @@
+/* 基础样式 */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f5f2;
     margin: 0;
     padding: 20px 15px 80px; /* 底部预留空间给导航栏 */
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 h1 {
     color: #333;
     font-size: 28px;
     margin-bottom: 20px;
+    text-align: center;
+    padding-top: 10px;
 }
 
+/* 搜索栏样式 */
 .search-bar {
     background-color: #fff;
     border-radius: 25px;
     padding: 12px 20px;
     margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .search-bar input {
@@ -29,17 +37,27 @@ h1 {
     outline: none;
     font-size: 16px;
     color: #666;
+    padding-left: 10px;
 }
 
+/* 功能图标样式 */
 .feature-icons {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .icon-item {
     text-align: center;
     width: 20%;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.icon-item:hover {
+    transform: translateY(-5px);
 }
 
 .icon-item i {
@@ -52,20 +70,40 @@ h1 {
     margin: 0;
     color: #666;
     font-size: 14px;
+    font-weight: 500;
+}
+
+/* 图片卡片样式 */
+.image-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 .image-cards .card {
     position: relative;
-    margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 .image-cards .card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     display: block;
+    transition: transform 0.5s;
+}
+
+.image-cards .card:hover img {
+    transform: scale(1.05);
 }
 
 .card-label {
@@ -73,11 +111,12 @@ h1 {
     bottom: 20px;
     left: 20px;
     background-color: rgba(255,255,255,0.9);
-    padding: 8px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
     font-size: 18px;
     color: #333;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
 }
 
 /* 底部导航栏样式 */
@@ -86,22 +125,30 @@ h1 {
     justify-content: space-around;
     padding: 15px 0;
     background-color: #fff;
-    box-shadow: 0 -2px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .nav-item {
     text-align: center;
+    flex: 1;
+}
+
+.nav-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-item i {
     font-size: 22px;
     color: #999;
     margin-bottom: 5px;
+    display: block;
 }
 
 .nav-item p {
@@ -115,17 +162,218 @@ h1 {
     color: #b5997f; /* 当前页高亮颜色 */
 }
 
-/* 响应式设计 */
+/* 轮播图样式修复 */
+.banner-carousel {
+    position: relative;
+    margin: 30px 0 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-container {
+    position: relative;
+    height: 300px; /* 增大轮播图高度 */
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* 关键修复：改为100%宽度 */
+}
+
+/* 修复关键问题：添加相对定位 */
+.carousel-slide {
+    position: relative; /* 创建定位上下文 */
+    flex: 0 0 100%; /* 关键修复：每张幻灯片占100%宽度 */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 修复文字重叠问题 */
+.slide-caption {
+    position: absolute;
+    bottom: 0; /* 贴合底部 */
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    padding: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.4;
+    z-index: 5; /* 确保文字在图片上方 */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 轮播导航按钮 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+/* 轮播指示器修复 */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    margin-top: 0; /* 移除旧的外边距 */
+}
+
+.indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.indicator.active {
+    background-color: #b5997f; /* 与导航栏高亮色一致 */
+    transform: scale(1.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+    .carousel-container {
+        height: 250px;
+    }
+    
+    .slide-caption {
+        font-size: 18px;
+        padding: 15px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .indicator {
+        width: 12px;
+        height: 12px;
+    }
+}
+
 @media (max-width: 768px) {
-    .feature-icons {
-        flex-wrap: wrap;
+    .banner-carousel {
+        margin: 15px 0 25px;
     }
-    .icon-item {
-        width: 50%;
-        margin-bottom: 20px;
+    
+    .carousel-container {
+        height: 200px;
     }
+    
+    .slide-caption {
+        font-size: 16px;
+        padding: 12px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .feature-icons .icon-item {
+        width: 33%;
+    }
+    
     .card-label {
         font-size: 16px;
-        padding: 5px 10px;
+        padding: 8px 15px;
     }
+    
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 180px;
+    }
+    
+    .slide-caption {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .feature-icons .icon-item {
+        width: 50%;
+    }
+    
+    .icon-item i {
+        font-size: 30px;
+    }
+    
+    .image-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 新增：加载指示器 */
+.loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #b5997f, #8a725f);
+    transform: translateX(-100%);
+    z-index: 2000;
+    transition: transform 0.3s ease-out;
+}
+
+.loading-indicator.active {
+    transform: translateX(0);
 }

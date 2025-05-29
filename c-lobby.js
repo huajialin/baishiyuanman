@@ -1,5 +1,6 @@
 // b-lobby.js
 document.addEventListener('DOMContentLoaded', function() {
+    setupNavigation();
     // 添加服务项点击效果
     const serviceItems = document.querySelectorAll('.service-item');
     
@@ -56,16 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 2000);
     }
-    
-    // 底部导航栏点击效果
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // 移除所有active类
-            navItems.forEach(nav => nav.classList.remove('active'));
-            
-            // 给当前项添加active类
-            this.classList.add('active');
-        });
-    });
 });
